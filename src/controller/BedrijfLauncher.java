@@ -28,5 +28,7 @@ public class BedrijfLauncher {
         System.out.printf("%s werkt op de afdeling %s en verdient %.2f\n",Medewerker.getNaam(),Medewerker.getAfdeling().getAfdelingsNaam(),Medewerker.getMaandSalaris());
         System.out.printf("%s werkt op de afdeling %s en woont in %s", Assistent.getNaam(),Assistent.getAfdeling().getAfdelingsNaam(),Assistent.getWoonplaats());
 
+        System.out.print("test123");
     }
+
 }
