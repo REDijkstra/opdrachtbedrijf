@@ -1,8 +1,10 @@
 package model;
+
 import model.Afdeling;
+
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
- * Dit is wat het programma doet.
+ * Deze klasse beschrijft een persoon binnen het bedrijf
  */
 public class Persoon {
 
@@ -22,10 +24,7 @@ public class Persoon {
 
 
     // constructors
-
-
-
-    public Persoon(String naam, String woonplaats, double maandSalaris,Afdeling afdeling) {
+    public Persoon(String naam, String woonplaats, double maandSalaris, Afdeling afdeling) {
         this.naam = naam;
         this.woonplaats = woonplaats;
         setMaandSalaris(maandSalaris);
@@ -34,18 +33,25 @@ public class Persoon {
     }
 
     public Persoon(String naam) {
-        this(naam, DEFAULT_WOONPLAATS, DEFAULT_MAANDSALARIS);
+        this.naam = naam;
+        this.woonplaats = DEFAULT_WOONPLAATS;
+        this.maandSalaris = DEFAULT_MAANDSALARIS;
+        this.afdeling = new Afdeling();
+        this.personeelsNummer = ++aantalPersonen;
     }
 
     public Persoon() {
-        this(DEFAULT_NAAM);
+        this.naam = DEFAULT_NAAM;
+        this.woonplaats = DEFAULT_WOONPLAATS;
+        this.maandSalaris = DEFAULT_MAANDSALARIS;
+        this.personeelsNummer = ++aantalPersonen;
     }
-
 
     //methoden
     public boolean heeftRechtOpBonus() {
         return maandSalaris >= GRENSWAARDE_BONUS;
     }
+
 
     public void setMaandSalaris(double maandSalaris) {
         if (maandSalaris < 0) {
@@ -96,7 +102,9 @@ public class Persoon {
         return maandSalaris;
     }
 
-
+    public Afdeling getAfdeling() {
+        return afdeling;
+    }
 }
 
 
