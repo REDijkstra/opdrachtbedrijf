@@ -1,6 +1,6 @@
 package model;
 
-import model.Afdeling;
+
 
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
