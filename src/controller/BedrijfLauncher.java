@@ -18,17 +18,18 @@ public class BedrijfLauncher {
         afdeling[2] = new Afdeling("Management", "Almere");
         afdeling[3] = new Afdeling("Documentatie", "Gouda");
 
-        Persoon Baas =  new Persoon("Mark", "Den Haag", 10000, afdeling[2]);
-        Persoon Medewerker = new Persoon("Caroline", "Delft",4000, afdeling[1]);
-        Persoon Assistent = new Persoon("Klaas");
+        Persoon baas =  new Persoon("Mark", "Den Haag", 10000, afdeling[2]);
+        Persoon medewerker = new Persoon("Caroline", "Delft",4000, afdeling[1]);
+        Persoon assistent = new Persoon("Klaas");
 
 
         System.out.printf("Het aantal personen in het bedrijf is %d\n", Persoon.aantalPersonen);
-        System.out.printf("%s werkt in %s en woont in %s\n", Baas.getNaam(),Baas.getAfdeling().getAfdelingsNaam(),Baas.getWoonplaats());
-        System.out.printf("%s werkt op de afdeling %s en verdient %.2f\n",Medewerker.getNaam(),Medewerker.getAfdeling().getAfdelingsNaam(),Medewerker.getMaandSalaris());
-        System.out.printf("%s werkt op de afdeling %s en woont in %s", Assistent.getNaam(),Assistent.getAfdeling().getAfdelingsNaam(),Assistent.getWoonplaats());
-
-        System.out.print("test123");
+        System.out.printf("%s werkt in %s en woont in %s\n",
+                baas.getNaam(),baas.getAfdeling().getAfdelingsNaam(),baas.getWoonplaats());
+        System.out.printf("%s werkt op de afdeling %s en verdient %.2f\n",
+                medewerker.getNaam(),medewerker.getAfdeling().getAfdelingsNaam(),medewerker.getMaandSalaris());
+        System.out.printf("%s werkt op de afdeling %s en woont in %s",
+                assistent.getNaam(),assistent.getAfdeling().getAfdelingsNaam(),assistent.getWoonplaats());
     }
 
 }
