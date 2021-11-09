@@ -6,6 +6,8 @@ package model;
  */
 public class Afdeling {
 
+    public static final String DEFAULT_AFDELINGSNAAM = "onbekend";
+    public static final String DEFAULT_AFDELINGSPLAATS = "onbekend";
     // variabelen
     private String afdelingsNaam = "onbekend";
     private String afdelingsPlaats = "onbekend";
@@ -13,6 +15,7 @@ public class Afdeling {
 
     //constructor
     public Afdeling() {
+        this(DEFAULT_AFDELINGSNAAM, DEFAULT_AFDELINGSPLAATS);
     }
 
     public Afdeling(String afdelingsNaam, String afdelingsPlaats) {
