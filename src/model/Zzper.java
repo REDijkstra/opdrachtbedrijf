@@ -2,33 +2,31 @@ package model;
 
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
- * Dit is wat het programma doet.
+ *
+ * Externe persoon wordt ingehuurd door bedrijf
  */
-public class Zzper extends Persoon{
-    public static final double DEFAULT_UURTARIEF = 0.0;
+public class Zzper extends Persoon {
+    public static final int DEFAULT_UREN_GEWERKT = 0;
     private double uurtarief;
     private int urenGewerkt;
-
 
     public Zzper(String naam, String woonplaats, Afdeling afdeling, double uurtarief) {
         super(naam, woonplaats, afdeling);
         this.uurtarief = uurtarief;
+        this.urenGewerkt = DEFAULT_UREN_GEWERKT;
     }
 
-    public Zzper() {
-        this(DEFAULT_NAAM,DEFAULT_WOONPLAATS, new Afdeling(), DEFAULT_UURTARIEF);
+    public void huurIn(int uren) {
+        urenGewerkt += uren;
     }
 
-    public double huurln(int uren){
-        return 0.0;
-    }
-
-    public double berekenJaarinkomen(){
-        return 0.0;
+    @Override
+    public double berekenJaarInkomen() {
+        return uurtarief * urenGewerkt;
     }
 
     @Override
     public String toString() {
-        return String.format("%s woont in %s en werkt op afdeling %s te %s", naam, woonplaats);
+        return String.format("%s en is een zzp-er met een uurtarief van %.2f", super.toString(), this.uurtarief);
     }
 }

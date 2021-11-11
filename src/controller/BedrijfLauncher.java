@@ -2,6 +2,7 @@ package controller;
 
 import model.Afdeling;
 import model.Persoon;
+import model.Werknemer;
 import model.Zzper;
 
 /**
@@ -11,28 +12,32 @@ import model.Zzper;
 public class BedrijfLauncher {
 
     public static void main(String[] args) {
+        Afdeling[] afdelingen = new Afdeling[4];
+        afdelingen[0] = new Afdeling("Uitvoering", "Hilversum");
+        afdelingen[1] = new Afdeling("Support", "Amsterdam");
+        afdelingen[2] = new Afdeling("Management", "Almere");
+        afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
-        /*Afdeling[] afdeling = new Afdeling[4];
+        Werknemer baas = new Werknemer("Mark", "Den Haag", afdelingen[2], 10000);
+        Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000);
+        Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50);
+        Zzper projectleider = new Zzper("Ronald", "Zaandam", afdelingen[0], 80);
 
-        afdeling[0] = new Afdeling("Uitvoering", "hilversum");
-        afdeling[1] = new Afdeling("Support", "Amsterdam");
-        afdeling[2] = new Afdeling("Management", "Almere");
-        afdeling[3] = new Afdeling("Documentatie", "Gouda");
+        assistent.huurIn(160);
+        projectleider.huurIn(320);
 
-        Persoon baas =  new Persoon("Mark", "Den Haag", 10000, afdeling[2]);
-        Persoon medewerker = new Persoon("Caroline", "Delft",4000, afdeling[1]);
-        Persoon assistent = new Persoon("Klaas");
+        Persoon[] personen = {
+                baas,
+                medewerker,
+                assistent,
+                projectleider};
 
-
-        System.out.printf("Het aantal personen in het bedrijf is %d\n", Persoon.aantalPersonen);
-        System.out.printf("%s werkt in %s en woont in %s\n",
-                baas.getNaam(),baas.getAfdeling().getAfdelingsNaam(),baas.getWoonplaats());
-        System.out.printf("%s werkt op de afdeling %s en verdient %.2f\n",
-                medewerker.getNaam(),medewerker.getAfdeling().getAfdelingsNaam(),medewerker.getMaandSalaris());
-        System.out.printf("%s werkt op de afdeling %s en woont in %s",
-                assistent.getNaam(),assistent.getAfdeling().getAfdelingsNaam(),assistent.getWoonplaats());
-    */
-     //Zzper zzper = new Zzper(henk, ow,3,234, 0);
+        for (Persoon persoon : personen) {
+            toonJaarInkomen(persoon);
+        }
     }
 
+    public static void toonJaarInkomen(Persoon persoon) {
+        System.out.printf("%s verdient %.2f per jaar\n", persoon.getNaam(), persoon.berekenJaarInkomen());
+    }
 }
