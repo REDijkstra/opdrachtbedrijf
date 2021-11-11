@@ -1,77 +1,64 @@
 package model;
 
 
-
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
  * Deze klasse beschrijft een persoon binnen het bedrijf
  */
+
 public class Persoon {
 
     // variabelen
-    private static final String DEFAULT_NAAM = "onbekend";
-    private static final String DEFAULT_WOONPLAATS = "onbekend";
-    private static final double DEFAULT_MAANDSALARIS = 0;
-    private static final double GRENSWAARDE_BONUS = 4500.00;
+    protected static final String DEFAULT_NAAM = "onbekend";
+    protected static final String DEFAULT_WOONPLAATS = "onbekend";
 
     public static int aantalPersonen;
 
-    private int personeelsNummer;
-    private String naam;
-    private String woonplaats;
-    private double maandSalaris;
-    private Afdeling afdeling;
+    protected int personeelsNummer;
+    protected String naam;
+    protected String woonplaats;
+    private final Afdeling afdeling;
 
 
     // constructors
-    public Persoon(String naam, String woonplaats, double maandSalaris, Afdeling afdeling) {
+
+
+    public Persoon(String naam, String woonplaats, Afdeling afdeling) {
         this.naam = naam;
         this.woonplaats = woonplaats;
-        setMaandSalaris(maandSalaris);
         this.afdeling = afdeling;
         this.personeelsNummer = ++aantalPersonen;
     }
 
     public Persoon(String naam) {
-        this.naam = naam;
-        this.woonplaats = DEFAULT_WOONPLAATS;
-        this.maandSalaris = DEFAULT_MAANDSALARIS;
-        this.afdeling = new Afdeling();
-        this.personeelsNummer = ++aantalPersonen;
+        this(naam, DEFAULT_WOONPLAATS, new Afdeling());
     }
 
     public Persoon() {
-        this.naam = DEFAULT_NAAM;
-        this.woonplaats = DEFAULT_WOONPLAATS;
-        this.maandSalaris = DEFAULT_MAANDSALARIS;
-        this.personeelsNummer = ++aantalPersonen;
+        this(DEFAULT_NAAM);
+
     }
 
     //methoden
-    public boolean heeftRechtOpBonus() {
-        return maandSalaris >= GRENSWAARDE_BONUS;
-    }
 
 
-    public void setMaandSalaris(double maandSalaris) {
-        if (maandSalaris < 0) {
-            maandSalaris = 0.0;
-        }
-        this.maandSalaris = maandSalaris;
+    @Override
+    public String toString() {
+        return "Persoon{" +
+                "personeelsNummer=" + personeelsNummer +
+                ", naam='" + naam + '\'' +
+                ", woonplaats='" + woonplaats + '\'' +
+                ", maandSalaris=" + maandSalaris +
+                ", afdeling=" + afdeling +
+                '}';
     }
 
     public double berekenJaarInkomen() {
-        return maandSalaris * 12;
+        return MAANDEN_VAN_HET_JAAR * maandSalaris;
     }
 
-
-    // Getters en setters
-    public static int getAantalPersonen() {
-        return aantalPersonen;
-    }
-
-    public static void setAantalPersonen(int aantalPersonen) {
-        Persoon.aantalPersonen = aantalPersonen;
+    public boolean heeftRechtOpBonus(){
+        return maandSalaris >= GRENSWAARDE_BONUS;
     }
 
     public int getPersoneelsNummer() {
@@ -102,10 +89,20 @@ public class Persoon {
         return maandSalaris;
     }
 
+    public void setMaandSalaris(double maandSalaris) {
+        if (maandSalaris < 0) {
+            System.out.println("Het maandsalaris mag niet negatief zijn, het wordt nu op 0 gezet.");
+            this.maandSalaris = 0;
+        } else {
+            this.maandSalaris = maandSalaris;
+        }
+    }
+
     public Afdeling getAfdeling() {
         return afdeling;
     }
 }
+
 
 
 

@@ -9,8 +9,8 @@ public class Afdeling {
     public static final String DEFAULT_AFDELINGSNAAM = "onbekend";
     public static final String DEFAULT_AFDELINGSPLAATS = "onbekend";
     // variabelen
-    private String afdelingsNaam = "onbekend";
-    private String afdelingsPlaats = "onbekend";
+    private String afdelingsNaam;
+    private String afdelingsPlaats;
 
 
     //constructor
@@ -23,7 +23,13 @@ public class Afdeling {
         this.afdelingsPlaats = afdelingsPlaats;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Afdeling %s te %s", afdelingsNaam, afdelingsPlaats);
+    }
+
     //getters & setters
+
 
     public String getAfdelingsNaam() {
         return afdelingsNaam;

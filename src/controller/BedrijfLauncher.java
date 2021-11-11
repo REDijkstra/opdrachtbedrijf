@@ -2,6 +2,7 @@ package controller;
 
 import model.Afdeling;
 import model.Persoon;
+import model.Zzper;
 
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
@@ -11,7 +12,7 @@ public class BedrijfLauncher {
 
     public static void main(String[] args) {
 
-        Afdeling[] afdeling = new Afdeling[4];
+        /*Afdeling[] afdeling = new Afdeling[4];
 
         afdeling[0] = new Afdeling("Uitvoering", "hilversum");
         afdeling[1] = new Afdeling("Support", "Amsterdam");
@@ -30,6 +31,8 @@ public class BedrijfLauncher {
                 medewerker.getNaam(),medewerker.getAfdeling().getAfdelingsNaam(),medewerker.getMaandSalaris());
         System.out.printf("%s werkt op de afdeling %s en woont in %s",
                 assistent.getNaam(),assistent.getAfdeling().getAfdelingsNaam(),assistent.getWoonplaats());
+    */
+     //Zzper zzper = new Zzper(henk, ow,3,234, 0);
     }
 
 }
