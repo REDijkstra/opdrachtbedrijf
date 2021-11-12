@@ -2,20 +2,22 @@ package model;
 
 /**
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
- *
- * Externe persoon wordt ingehuurd door bedrijf
+ * Dit is wat het programma doet.
  */
-public class Zzper extends Persoon {
+
+public class ZZPer extends Persoon implements Oproepbaar {
+
     public static final int DEFAULT_UREN_GEWERKT = 0;
     private double uurtarief;
     private int urenGewerkt;
 
-    public Zzper(String naam, String woonplaats, Afdeling afdeling, double uurtarief) {
+    public ZZPer(String naam, String woonplaats, Afdeling afdeling, double uurtarief) {
         super(naam, woonplaats, afdeling);
         this.uurtarief = uurtarief;
         this.urenGewerkt = DEFAULT_UREN_GEWERKT;
     }
 
+    @Override
     public void huurIn(int uren) {
         urenGewerkt += uren;
     }

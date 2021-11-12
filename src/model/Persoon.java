@@ -5,10 +5,9 @@ package model;
  * @author Rutger Dijkstra <r.e.dijkstra@st.hanze.nl>
  * Deze klasse beschrijft een persoon binnen het bedrijf
  */
-
-public abstract class Persoon {
-    protected static final String DEFAULT_NAAM = "onbekend";
-    protected static final String DEFAULT_WOONPLAATS = "onbekend";
+public abstract class Persoon implements Comparable<Persoon> {
+    protected static final String DEFAULT_NAAM = "Onbekend";
+    protected static final String DEFAULT_WOONPLAATS = "Onbekend";
 
     public static int aantalPersonen = 0;
 
@@ -31,10 +30,14 @@ public abstract class Persoon {
 
     public Persoon() {
         this(DEFAULT_NAAM);
-
     }
+
     public abstract double berekenJaarInkomen();
 
+    @Override
+    public int compareTo(Persoon anderPersoon) {
+        return this.naam.compareTo(anderPersoon.naam);
+    }
 
     @Override
     public String toString() {
