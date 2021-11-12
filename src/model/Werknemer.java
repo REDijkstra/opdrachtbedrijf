@@ -14,7 +14,9 @@ public class Werknemer extends Persoon {
 
     public Werknemer(String naam, String woonplaats, Afdeling afdeling, double maandSalaris) {
         super(naam, woonplaats, afdeling);
+        // FIXME: 12/11/2021
         this.maandSalaris = maandSalaris;
+        //setMaandSalaris(maandSalaris);
     }
 
     public Werknemer(String naam) {
@@ -45,6 +47,17 @@ public class Werknemer extends Persoon {
         return String.format("%s en is een werknemer %s recht op een bonus",
                 super.toString(), heeftRechtOpBonus() ? "met" : "zonder");
     }
+
+    /*public void setMaandSalaris(double maandSalaris) {
+        //this.maandSalaris = maandSalaris;
+        if (maandSalaris < 0) {
+            throw new IllegalArgumentException("Het maandsalaris mag niet negatief zijn");
+        }
+        try {
+            maandSalaris
+        }
+        this.maandSalaris = maandSalaris;
+    }*/
 }
 
 
